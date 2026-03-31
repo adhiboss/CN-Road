@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    Multi-Layered Vehicular Safety System using AI, ML, and CNN
+    Author: You
+    Notes:
+    - No frameworks used (HTML/CSS/JS only).
+    - Dark futuristic theme with neon accents, animations, and interactivity.
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi-Layered Vehicular Safety System | AI • ML • CNN</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Optional: Google Font (not a framework) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Decorative background layers -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- Top Navigation -->
+  <header class="header" id="top">
+    <nav class="nav container" aria-label="Primary">
+      <a class="brand" href="#home" aria-label="Go to Home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__text">Vehicular Safety System</span>
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
+      </button>
+
+      <div class="nav__links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#problem">Problem</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#aiml">AI & ML</a>
+        <a href="#cnn">CNN</a>
+        <a href="#features">Features</a>
+        <a href="#tech">Tech Stack</a>
+        <a href="#demo">Demo</a>
+        <a href="#conclusion">Conclusion</a>
+      </div>
+
+      <div class="nav__actions">
+        <button class="btn btn--ghost" id="themePulse" type="button" aria-label="Pulse accent">
+          Pulse
+        </button>
+        <a class="btn btn--primary" href="#demo">Try Demo</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 1) HOME -->
+    <section class="section hero" id="home">
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <div class="pill">
+            <span class="dot"></span>
+            Final-Year Engineering Project • AI + IoT + Smart City
+          </div>
+
+          <h1 class="hero__title">
+            Multi-Layered Vehicular Safety System
+            <span class="hero__subtitle">using AI, ML, and CNN</span>
+          </h1>
+
+          <p class="hero__lead">
+            An intelligent accident detection and response ecosystem that fuses
+            <strong>sensor intelligence</strong>, <strong>AI decision-making</strong>,
+            <strong>ML pattern detection</strong>, and <strong>CNN-based vision/audio analysis</strong>
+            to reduce emergency response time during the <em>Golden Hour</em>.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#architecture">Explore System</a>
+            <a class="btn btn--ghost" href="#problem">Why it matters</a>
+          </div>
+
+          <div class="hero__stats">
+            <div class="stat card">
+              <div class="stat__value">Multi‑Sensor</div>
+              <div class="stat__label">G‑force + GPS + Audio + Optional Health</div>
+            </div>
+            <div class="stat card">
+              <div class="stat__value">Golden Hour</div>
+              <div class="stat__label">Fast alerts → faster medical response</div>
+            </div>
+            <div class="stat card">
+              <div class="stat__value">Secure Logs</div>
+              <div class="stat__label">Blockchain-based tamper-proof evidence</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal">
+          <div class="hud card">
+            <div class="hud__top">
+              <span class="chip">LIVE</span>
+              <span class="hud__title">Accident Intelligence HUD</span>
+            </div>
+
+            <div class="hud__meters">
+              <div class="meter">
+                <div class="meter__label">Impact (G-force)</div>
+                <div class="meter__bar"><span style="--w: 72%"></span></div>
+              </div>
+              <div class="meter">
+                <div class="meter__label">Audio Anomaly</div>
+                <div class="meter__bar"><span style="--w: 64%"></span></div>
+              </div>
+              <div class="meter">
+                <div class="meter__label">Vision Confidence</div>
+                <div class="meter__bar"><span style="--w: 86%"></span></div>
+              </div>
+            </div>
+
+            <div class="hud__grid">
+              <div class="hud__tile">
+                <div class="hud__k">GPS</div>
+                <div class="hud__v">Lat 12.97 • Lon 77.59</div>
+              </div>
+              <div class="hud__tile">
+                <div class="hud__k">Node</div>
+                <div class="hud__v">ESP32 / Edge</div>
+              </div>
+              <div class="hud__tile">
+                <div class="hud__k">Cloud</div>
+                <div class="hud__v">Firebase / Alerts</div>
+              </div>
+              <div class="hud__tile">
+                <div class="hud__k">Mode</div>
+                <div class="hud__v">Multi-layer verify</div>
+              </div>
+            </div>
+
+            <div class="hud__footer">
+              <span class="tiny">Neon UI • Smooth animations • Responsive layout</span>
+              <a class="tiny link" href="#demo">Run Simulation →</a>
+            </div>
+          </div>
+
+          <div class="orbit" aria-hidden="true">
+            <span class="orbit__ring"></span>
+            <span class="orbit__ring orbit__ring--2"></span>
+            <span class="orbit__ring orbit__ring--3"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2) PROBLEM STATEMENT -->
+    <section class="section" id="problem">
+      <div class="container">
+        <header class="section__header reveal">
+          <h2 class="section__title">Problem Statement</h2>
+          <p class="section__desc">
+            Road accidents demand immediate medical response. Minutes matter—especially within the
+            <strong>Golden Hour</strong>, when timely treatment significantly improves survival chances.
+          </p>
+        </header>
+
+        <div class="grid grid--2">
+          <article class="card reveal">
+            <h3>Why Road Accidents Are Critical</h3>
+            <p>
+              Accidents can cause severe trauma and internal injuries where early intervention is vital.
+              Delays due to lack of awareness, poor communication, or traffic congestion lead to preventable fatalities.
+            </p>
+            <ul class="bullets">
+              <li><strong>Golden Hour:</strong> first ~60 minutes are crucial for emergency care.</li>
+              <li><strong>Faster alerts:</strong> enables hospitals/police/ambulance to respond quickly.</li>
+              <li><strong>Smart traffic:</strong> can create green corridors for ambulances.</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <h3>Why Traditional Systems Fail</h3>
+            <p>
+              Conventional approaches often rely on manual reporting, which is slow and error-prone.
+              Single-sensor triggers can cause false alarms (potholes, harsh braking), while real crashes may go unreported.
+            </p>
+            <ul class="bullets">
+              <li>Manual calling delays emergency response.</li>
+              <li>False positives reduce system trust.</li>
+              <li>No multi-layer verification (impact + sound + vision).</li>
+              <li>Limited secure evidence storage for investigations.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) SYSTEM ARCHITECTURE -->
+    <section class="section" id="architecture">
+      <div class="container">
+        <header class="section__header reveal">
+          <h2 class="section__title">System Architecture</h2>
+          <p class="section__desc">
+            A layered pipeline: <strong>IoT sensing</strong> → <strong>edge processing (ESP32)</strong> →
+            <strong>cloud intelligence</strong> → <strong>instant alerts</strong>.
+          </p>
+        </header>
+
+        <div class="grid grid--2 architecture">
+          <div class="card reveal">
+            <div class="media">
+              <!-- Placeholder diagram: replace with your own image later -->
+              <img
+                class="media__img"
+                src="https://via.placeholder.com/1200x700.png?text=System+Architecture+Diagram+(Placeholder)"
+                alt="System architecture diagram placeholder"
+                loading="lazy"
+              />
+            </div>
+            <p class="tiny muted">
+              Tip: Replace the placeholder with a block diagram (Sensors → ESP32 → Cloud → Alerts/V2X/Blockchain).
+            </p>
+          </div>
+
+          <div class="stack reveal">
+            <div class="card">
+              <h3>Core Components</h3>
+              <div class="arch-list">
+                <div class="arch-item">
+                  <span class="badge">Sensors</span>
+                  <div>
+                    <p><strong>Accelerometer:</strong> detects sudden impact / G-force spikes.</p>
+                    <p><strong>GPS:</strong> captures location for emergency services.</p>
+                    <p><strong>Microphone (optional):</strong> captures crash sounds for audio analysis.</p>
+                  </div>
+                </div>
+
+                <div class="arch-item">
+                  <span class="badge">ESP32</span>
+                  <div>
+                    <p>
+                      Collects sensor streams, performs lightweight validation, and transmits data
+                      via Wi‑Fi/Cellular modules to the cloud.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="arch-item">
+                  <span class="badge">Cloud</span>
+                  <div>
+                    <p>
+                      Runs ML/CNN models, stores logs, triggers workflows (Firebase/IFTTT),
+                      and integrates with smart city services.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="arch-item">
+                  <span class="badge">Alert System</span>
+                  <div>
+                    <p>
+                      Automatically sends accident alerts containing GPS location, time stamp,
+                      and confidence scores to emergency responders and nearby vehicles (V2X).
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="callout card">
+              <h4>Multi-layer verification = fewer false alarms</h4>
+              <p class="muted">
+                The system confirms accidents using a combination of impact, motion, audio anomalies,
+                and CNN confidence, rather than relying on a single trigger.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) AI & ML -->
+    <section class="section" id="aiml">
+      <div class="container">
+        <header class="section__header reveal">
+          <h2 class="section__title">AI & Machine Learning</h2>
+          <p class="section__desc">
+            AI handles decision-making and orchestration, while ML learns driving/impact patterns from data.
+          </p>
+        </header>
+
+        <div class="grid grid--2">
+          <article class="card reveal">
+            <h3>Artificial Intelligence (AI)</h3>
+            <p>
+              AI acts as the system’s decision engine: it combines evidence from multiple sources
+              (sensor thresholds, ML classification, CNN confidence) and decides whether to trigger emergency protocols.
+            </p>
+            <ul class="bullets">
+              <li>Decision fusion: impact + sound + vision + context.</li>
+              <li>Triggers emergency workflow automatically.</li>
+              <li>Can integrate with smart traffic for green corridors.</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <h3>Machine Learning (ML)</h3>
+            <p>
+              ML models analyze numeric sensor streams (accelerometer, speed changes, motion patterns)
+              to distinguish normal events from true accidents.
+            </p>
+            <ul class="bullets">
+              <li>Pattern detection from time-series signals.</li>
+              <li>Classifies: normal driving vs sudden braking vs accident.</li>
+              <li>Improves accuracy over time with new training data.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) CNN -->
+    <section class="section" id="cnn">
+      <div class="container">
+        <header class="section__header reveal">
+          <h2 class="section__title">CNN (Convolutional Neural Networks)</h2>
+          <p class="section__desc">
+            CNNs learn spatial patterns in images and time-frequency patterns in spectrograms—ideal for accident detection.
+          </p>
+        </header>
+
+        <div class="grid grid--3">
+          <article class="card reveal">
+            <h3>What is a CNN?</h3>
+            <p>
+              A CNN is a deep learning model designed to extract features using convolution filters.
+              It automatically learns edges, shapes, motion cues, and complex visual patterns.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <h3>Image-based Accident Detection</h3>
+            <p>
+              Road-facing camera frames can be classified into <strong>accident</strong> vs <strong>non-accident</strong>.
+              This adds visual confirmation, improving reliability when sensors alone are ambiguous.
+            </p>
+            <div class="mini-steps">
+              <span>Camera</span><span>→</span><span>CNN</span><span>→</span><span>Confidence</span>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <h3>Sound-based Detection (Spectrograms)</h3>
+            <p>
+              Crash sounds have distinctive frequency signatures. Audio is converted into a
+              <strong>spectrogram</strong> and then classified by a CNN to detect collisions.
+            </p>
+            <div class="mini-steps">
+              <span>Mic</span><span>→</span><span>Spectrogram</span><span>→</span><span>CNN</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="card reveal cnn-note">
+          <h4>Why combine CNN with sensors?</h4>
+          <p class="muted">
+            Sensors can spike during potholes or harsh braking. CNN-based vision/audio adds an independent signal,
+            enabling robust multi-layer validation and reducing false positives.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6) FEATURES -->
+    <section class="section" id="features">
+      <div class="container">
+        <header class="section__header reveal">
+          <h2 class="section__title">Features</h2>
+          <p class="section__desc">Designed as a complete safety ecosystem for connected mobility.</p>
+        </header>
+
+        <div class="grid grid--3">
+          <div class="card feature reveal">
+            <div class="feature__icon">⚡</div>
+            <h3>Real-time Accident Detection</h3>
+            <p>Multi-sensor + AI fusion detects accidents instantly and reliably.</p>
+          </div>
+
+          <div class="card feature reveal">
+            <div class="feature__icon">📍</div>
+            <h3>GPS Location Tracking</h3>
+            <p>Shares accurate coordinates with emergency responders automatically.</p>
+          </div>
+
+          <div class="card feature reveal">
+            <div class="feature__icon">🚨</div>
+            <h3>Automatic Alert System</h3>
+            <p>Triggers alerts without human input—critical during severe injuries.</p>
+          </div>
+
+          <div class="card feature reveal">
+            <div class="feature__icon">❤️</div>
+            <h3>Driver Health Monitoring</h3>
+            <p>Optional ECG/health sensors help detect fatigue or medical emergencies.</p>
+          </div>
+
+          <div class="card feature reveal">
+            <div class="feature__icon">📡</div>
+            <h3>V2X Communication</h3>
+            <p>Alerts nearby vehicles/infrastructure (V2V, V2I) to prevent secondary crashes.</p>
+          </div>
+
+          <div class="card feature reveal">
+            <div class="feature__icon">🔐</div>
+            <h3>Blockchain-based Security</h3>
+            <p>Accident logs stored as tamper-proof records for legal/insurance evidence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7) TECH STACK -->
+    <section class="section" id="tech">
+      <div class="container">
+        <header class="section__header reveal">
+          <h2 class="section__title">Tech Stack</h2>
+          <p class="section__desc">A clean, modern stack suited for prototyping and demonstration.</p>
+        </header>
+
+        <div class="grid grid--4">
+          <div class="card reveal">
+            <h3>Frontend</h3>
+            <p class="muted">HTML • CSS • JavaScript</p>
+            <div class="tag-row">
+              <span class="tag">Responsive UI</span>
+              <span class="tag">Animations</span>
+              <span class="tag">Accessibility</span>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <h3>AI / CNN</h3>
+            <p class="muted">TensorFlow • CNN Models</p>
+            <div class="tag-row">
+              <span class="tag">Vision</span>
+              <span class="tag">Spectrogram</span>
+              <span class="tag">Classification</span>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <h3>Hardware</h3>
+            <p class="muted">ESP32 • Sensors</p>
+            <div class="tag-row">
+              <span class="tag">Accelerometer</span>
+              <span class="tag">GPS</span>
+              <span class="tag">Mic</span>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <h3>Cloud</h3>
+            <p class="muted">Firebase / Cloud</p>
+            <div class="tag-row">
+              <span class="tag">Realtime DB</span>
+              <span class="tag">Functions</span>
+              <span class="tag">Alerts</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8) DEMO -->
+    <section class="section" id="demo">
+      <div class="container">
+        <header class="section__header reveal">
+          <h2 class="section__title">Demo</h2>
+          <p class="section__desc">
+            Click to simulate detection. In real deployment, this would be triggered by sensor + CNN verification.
+          </p>
+        </header>
+
+        <div class="card demo-card reveal">
+          <div class="demo-card__left">
+            <h3>Accident Simulation</h3>
+            <p class="muted">
+              This demo shows a UI workflow: detection → confirmation → alert dispatch.
+              It mimics sending location to emergency services.
+            </p>
+
+            <div class="demo-actions">
+              <button class="btn btn--primary" id="simulateBtn" type="button">
+                Simulate Accident
+              </button>
+              <button class="btn btn--ghost" id="showToastBtn" type="button">
+                Show System Status
+              </button>
+            </div>
+
+            <div class="tiny muted">
+              Hint: You can customize the popup text in <code>script.js</code>.
+            </div>
+          </div>
+
+          <div class="demo-card__right">
+            <div class="telemetry">
+              <div class="telemetry__row">
+                <span class="telemetry__k">System</span>
+                <span class="telemetry__v" id="systemState">Armed</span>
+              </div>
+              <div class="telemetry__row">
+                <span class="telemetry__k">Verification</span>
+                <span class="telemetry__v" id="verifyState">Multi-layer</span>
+              </div>
+              <div class="telemetry__row">
+                <span class="telemetry__k">Last Event</span>
+                <span class="telemetry__v" id="lastEvent">—</span>
+              </div>
+              <div class="telemetry__row">
+                <span class="telemetry__k">Confidence</span>
+                <span class="telemetry__v" id="confidence">—</span>
+              </div>
+            </div>
+
+            <div class="pulse-panel" aria-hidden="true">
+              <div class="pulse-panel__dot"></div>
+              <div class="pulse-panel__dot"></div>
+              <div class="pulse-panel__dot"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9) CONCLUSION -->
+    <section class="section" id="conclusion">
+      <div class="container">
+        <header class="section__header reveal">
+          <h2 class="section__title">Conclusion & Future Scope</h2>
+          <p class="section__desc">
+            AI-enabled safety systems can transform emergency response, reduce fatalities, and power smart transportation.
+          </p>
+        </header>
+
+        <div class="grid grid--2">
+          <article class="card reveal">
+            <h3>Key Benefits</h3>
+            <ul class="bullets">
+              <li>Reduced response time through automated emergency alerts.</li>
+              <li>Higher accuracy via multi-layer verification (sensor + CNN + ML).</li>
+              <li>Better traffic coordination through V2X / smart city integration.</li>
+              <li>Secure incident records using blockchain-based logging.</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <h3>Future Scope</h3>
+            <ul class="bullets">
+              <li>Edge-AI deployment for low-latency on-device inference.</li>
+              <li>Expanded health monitoring and driver fatigue prediction.</li>
+              <li>City-wide integration with adaptive traffic signals and routing.</li>
+              <li>Continuous learning using anonymized, consent-based datasets.</li>
+            </ul>
+          </article>
+        </div>
+
+        <footer class="footer reveal">
+          <div class="footer__left">
+            <div class="brand brand--small">
+              <span class="brand__mark" aria-hidden="true"></span>
+              <span class="brand__text">Multi-Layered Vehicular Safety System</span>
+            </div>
+            <p class="tiny muted">
+              Built with HTML • CSS • JS — dark futuristic theme, responsive layout, and interactive demo.
+            </p>
+          </div>
+
+          <div class="footer__right">
+            <a class="link tiny" href="#top">Back to top</a>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast + Modal -->
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">
+    <div class="toast__icon" aria-hidden="true">🛰️</div>
+    <div class="toast__body">
+      <div class="toast__title" id="toastTitle">System Online</div>
+      <div class="toast__text" id="toastText">Sensors synced. Awaiting events.</div>
+    </div>
+    <button class="toast__close" id="toastClose" aria-label="Close notification">×</button>
+  </div>
+
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__backdrop" data-close="true"></div>
+    <div class="modal__panel card">
+      <div class="modal__header">
+        <h3 class="modal__title" id="modalTitle">Accident Detected</h3>
+        <button class="modal__close" id="modalClose" aria-label="Close dialog">×</button>
+      </div>
+      <div class="modal__content">
+        <p id="modalMessage">
+          Accident Detected! Location sent to emergency services.
+        </p>
+
+        <div class="modal__meta">
+          <div class="meta-pill">
+            <span class="meta-k">Time</span>
+            <span class="meta-v" id="metaTime">—</span>
+          </div>
+          <div class="meta-pill">
+            <span class="meta-k">GPS</span>
+            <span class="meta-v" id="metaGps">—</span>
+          </div>
+          <div class="meta-pill">
+            <span class="meta-k">Confidence</span>
+            <span class="meta-v" id="metaConf">—</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal__actions">
+        <button class="btn btn--primary" id="modalOk" type="button">OK</button>
+        <button class="btn btn--ghost" id="modalDetails" type="button">View Steps</button>
+      </div>
+
+      <div class="modal__steps" id="modalSteps" hidden>
+        <ol>
+          <li>Impact spike detected (accelerometer)</li>
+          <li>Audio anomaly verified (spectrogram-CNN)</li>
+          <li>Optional vision confirmation (image-CNN)</li>
+          <li>AI decision engine confirmed accident</li>
+          <li>GPS + timestamp sent to emergency services</li>
+          <li>V2X alert broadcast to nearby nodes</li>
+          <li>Blockchain log entry created (tamper-proof)</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
