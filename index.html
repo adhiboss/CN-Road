@@ -1,220 +1,545 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multi-Layered Vehicular Safety System</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Animated Background Orbs -->
-  <div class="bg-orb orb-1"></div>
-  <div class="bg-orb orb-2"></div>
+  <!--
+    Multi-Layered Vehicular Safety System using AI, ML, and CNN
+    Author: You
+    Notes:
+    - No frameworks used (HTML/CSS/JS only).
+    - Dark futuristic theme with neon accents, animations, and interactivity.
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi-Layered Vehicular Safety System | AI • ML • CNN</title>
 
-  <!-- Navigation -->
-  <header class="header">
-    <div class="container nav">
-      <div class="brand">
-        <span class="text-gradient">●</span> Vehicular Safety System
-      </div>
-      <div class="nav__links">
-        <a href="#home" class="active">Home</a>
-        <a href="#showcase">Project Showcase</a>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Optional: Google Font (not a framework) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Decorative background layers -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- Top Navigation -->
+  <header class="header" id="top">
+    <nav class="nav container" aria-label="Primary">
+      <a class="brand" href="#home" aria-label="Go to Home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__text">Vehicular Safety System</span>
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
+      </button>
+
+      <div class="nav__links" id="navLinks">
+        <a href="#home">Home</a>
         <a href="#problem">Problem</a>
         <a href="#architecture">Architecture</a>
-        <a href="#playground">AI Playground</a>
+        <a href="#aiml">AI & ML</a>
+        <a href="#cnn">CNN</a>
+        <a href="#features">Features</a>
+        <a href="#tech">Tech Stack</a>
+        <a href="#demo">Demo</a>
+        <a href="#conclusion">Conclusion</a>
       </div>
-    </div>
+
+      <div class="nav__actions">
+        <button class="btn btn--ghost" id="themePulse" type="button" aria-label="Pulse accent">
+          Pulse
+        </button>
+        <a class="btn btn--primary" href="#demo">Try Demo</a>
+      </div>
+    </nav>
   </header>
 
   <main>
     <!-- 1) HOME -->
-    <section class="hero" id="home">
-      <div class="container hero__content reveal">
-        <h1>Multi-Layered Vehicular <br>Safety System <span class="text-gradient">using AI, ML, and CNN</span></h1>
-        <p class="hero__desc">
-          An intelligent accident detection and response ecosystem that fuses sensor intelligence, AI decision-making, ML pattern detection, and CNN-based vision/audio analysis to reduce emergency response time during the Golden Hour.
-        </p>
-        <a href="#playground" class="btn btn--ai">Try AI Playground</a>
-        <a href="#architecture" class="btn btn--ghost" style="margin-left: 12px;">Explore Architecture</a>
+    <section class="section hero" id="home">
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <div class="pill">
+            <span class="dot"></span>
+            Final-Year Engineering Project • AI + IoT + Smart City
+          </div>
+
+          <h1 class="hero__title">
+            Multi-Layered Vehicular Safety System
+            <span class="hero__subtitle">using AI, ML, and CNN</span>
+          </h1>
+
+          <p class="hero__lead">
+            An intelligent accident detection and response ecosystem that fuses
+            <strong>sensor intelligence</strong>, <strong>AI decision-making</strong>,
+            <strong>ML pattern detection</strong>, and <strong>CNN-based vision/audio analysis</strong>
+            to reduce emergency response time during the <em>Golden Hour</em>.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#architecture">Explore System</a>
+            <a class="btn btn--ghost" href="#problem">Why it matters</a>
+          </div>
+
+          <div class="hero__stats">
+            <div class="stat card">
+              <div class="stat__value">Multi‑Sensor</div>
+              <div class="stat__label">G‑force + GPS + Audio + Optional Health</div>
+            </div>
+            <div class="stat card">
+              <div class="stat__value">Golden Hour</div>
+              <div class="stat__label">Fast alerts → faster medical response</div>
+            </div>
+            <div class="stat card">
+              <div class="stat__value">Secure Logs</div>
+              <div class="stat__label">Blockchain-based tamper-proof evidence</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal">
+          <div class="hud card">
+            <div class="hud__top">
+              <span class="chip">LIVE</span>
+              <span class="hud__title">Accident Intelligence HUD</span>
+            </div>
+
+            <div class="hud__meters">
+              <div class="meter">
+                <div class="meter__label">Impact (G-force)</div>
+                <div class="meter__bar"><span style="--w: 72%"></span></div>
+              </div>
+              <div class="meter">
+                <div class="meter__label">Audio Anomaly</div>
+                <div class="meter__bar"><span style="--w: 64%"></span></div>
+              </div>
+              <div class="meter">
+                <div class="meter__label">Vision Confidence</div>
+                <div class="meter__bar"><span style="--w: 86%"></span></div>
+              </div>
+            </div>
+
+            <div class="hud__grid">
+              <div class="hud__tile">
+                <div class="hud__k">GPS</div>
+                <div class="hud__v">Lat 12.97 • Lon 77.59</div>
+              </div>
+              <div class="hud__tile">
+                <div class="hud__k">Node</div>
+                <div class="hud__v">ESP32 / Edge</div>
+              </div>
+              <div class="hud__tile">
+                <div class="hud__k">Cloud</div>
+                <div class="hud__v">Firebase / Alerts</div>
+              </div>
+              <div class="hud__tile">
+                <div class="hud__k">Mode</div>
+                <div class="hud__v">Multi-layer verify</div>
+              </div>
+            </div>
+
+            <div class="hud__footer">
+              <span class="tiny">Neon UI • Smooth animations • Responsive layout</span>
+              <a class="tiny link" href="#demo">Run Simulation →</a>
+            </div>
+          </div>
+
+          <div class="orbit" aria-hidden="true">
+            <span class="orbit__ring"></span>
+            <span class="orbit__ring orbit__ring--2"></span>
+            <span class="orbit__ring orbit__ring--3"></span>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- 1.5) SHOWCASE GALLERY -->
-    <section id="showcase">
-      <div class="container" style="text-align: center; max-width: 1000px;">
-        <h2 style="margin-bottom: 16px;">Project <span class="text-gradient">Showcase</span></h2>
-        <p style="margin-bottom: 48px;">A closer look at the hardware integration, structural prototypes, and live deployment setup.</p>
+    <section class="section" id="showcase">
+      <div class="container">
+        <header class="section__header reveal">
+          <h2 class="section__title">Project Showcase</h2>
+          <p class="section__desc">A closer look at the hardware integration, structural prototypes, and live deployment setup.</p>
+        </header>
         
-        <div class="showcase-grid reveal">
-          <div class="showcase-item"><img src="images/R-trai.jpg" alt="Project Setup 1" loading="lazy"></div>
-          <div class="showcase-item"><img src="images/WhatsApp Image 2026-05-06 at 10.34.23 PM.jpeg" alt="Project Setup 2" loading="lazy"></div>
-          <div class="showcase-item"><img src="images/pic.png" alt="Project Architecture" loading="lazy"></div>
-          <div class="showcase-item"><img src="images/pic2.jpg" alt="Hardware Node" loading="lazy"></div>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+          <div class="card reveal" style="padding: 10px; text-align: center;"><img src="images/R-trai.jpg" alt="Setup 1" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);"></div>
+          <div class="card reveal" style="padding: 10px; text-align: center;"><img src="images/WhatsApp Image 2026-05-06 at 10.34.23 PM.jpeg" alt="Setup 2" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);"></div>
+          <div class="card reveal" style="padding: 10px; text-align: center;"><img src="images/pic.png" alt="Architecture" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);"></div>
+          <div class="card reveal" style="padding: 10px; text-align: center;"><img src="images/pic2.jpg" alt="Node" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);"></div>
         </div>
       </div>
     </section>
 
     <!-- 2) PROBLEM STATEMENT -->
-    <section id="problem">
+    <section class="section" id="problem">
       <div class="container">
-        <div style="text-align: center; margin-bottom: 48px;" class="reveal">
-          <h2>Problem <span class="text-gradient">Statement</span></h2>
-          <p>Minutes matter—especially within the Golden Hour, when timely treatment significantly improves survival chances.</p>
-        </div>
+        <header class="section__header reveal">
+          <h2 class="section__title">Problem Statement</h2>
+          <p class="section__desc">
+            Road accidents demand immediate medical response. Minutes matter—especially within the
+            <strong>Golden Hour</strong>, when timely treatment significantly improves survival chances.
+          </p>
+        </header>
 
         <div class="grid grid--2">
-          <div class="card reveal">
+          <article class="card reveal">
             <h3>Why Road Accidents Are Critical</h3>
-            <p style="margin-top: 12px;">
+            <p>
               Accidents can cause severe trauma and internal injuries where early intervention is vital.
               Delays due to lack of awareness, poor communication, or traffic congestion lead to preventable fatalities.
             </p>
-            <ul style="margin-top: 12px; padding-left: 20px; color: var(--text-muted);">
-              <li style="margin-bottom: 8px;"><strong>Golden Hour:</strong> first ~60 minutes are crucial for emergency care.</li>
-              <li style="margin-bottom: 8px;"><strong>Faster alerts:</strong> enables hospitals/police to respond quickly.</li>
+            <ul class="bullets">
+              <li><strong>Golden Hour:</strong> first ~60 minutes are crucial for emergency care.</li>
+              <li><strong>Faster alerts:</strong> enables hospitals/police/ambulance to respond quickly.</li>
+              <li><strong>Smart traffic:</strong> can create green corridors for ambulances.</li>
             </ul>
-          </div>
+          </article>
 
-          <div class="card reveal">
+          <article class="card reveal">
             <h3>Why Traditional Systems Fail</h3>
-            <p style="margin-top: 12px;">
+            <p>
               Conventional approaches often rely on manual reporting, which is slow and error-prone.
-              Single-sensor triggers can cause false alarms.
+              Single-sensor triggers can cause false alarms (potholes, harsh braking), while real crashes may go unreported.
             </p>
-            <ul style="margin-top: 12px; padding-left: 20px; color: var(--text-muted);">
-              <li style="margin-bottom: 8px;">Manual calling delays emergency response.</li>
-              <li style="margin-bottom: 8px;">False positives reduce system trust.</li>
-              <li style="margin-bottom: 8px;">No multi-layer verification (impact + sound + vision).</li>
+            <ul class="bullets">
+              <li>Manual calling delays emergency response.</li>
+              <li>False positives reduce system trust.</li>
+              <li>No multi-layer verification (impact + sound + vision).</li>
+              <li>Limited secure evidence storage for investigations.</li>
             </ul>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- 3) SYSTEM ARCHITECTURE -->
-    <section id="architecture">
+    <section class="section" id="architecture">
       <div class="container">
-        <div style="text-align: center; margin-bottom: 48px;" class="reveal">
-          <h2>System <span class="text-gradient">Architecture</span></h2>
-          <p>A layered pipeline: IoT sensing → edge processing (ESP32) → cloud intelligence → instant alerts.</p>
+        <header class="section__header reveal">
+          <h2 class="section__title">System Architecture</h2>
+          <p class="section__desc">
+            A layered pipeline: <strong>IoT sensing</strong> → <strong>edge processing (ESP32)</strong> →
+            <strong>cloud intelligence</strong> → <strong>instant alerts</strong>.
+          </p>
+        </header>
+
+        <div class="grid grid--2 architecture">
+          <div class="card reveal">
+            <div class="media">
+              <!-- Placeholder diagram: replace with your own image later -->
+              <img
+                class="media__img"
+                src="https://via.placeholder.com/1200x700.png?text=System+Architecture+Diagram+(Placeholder)"
+                alt="System architecture diagram placeholder"
+                loading="lazy"
+              />
+            </div>
+            <p class="tiny muted">
+              Tip: Replace the placeholder with a block diagram (Sensors → ESP32 → Cloud → Alerts/V2X/Blockchain).
+            </p>
+          </div>
+
+          <div class="stack reveal">
+            <div class="card">
+              <h3>Core Components</h3>
+              <div class="arch-list">
+                <div class="arch-item">
+                  <span class="badge">Sensors</span>
+                  <div>
+                    <p><strong>Accelerometer:</strong> detects sudden impact / G-force spikes.</p>
+                    <p><strong>GPS:</strong> captures location for emergency services.</p>
+                    <p><strong>Microphone (optional):</strong> captures crash sounds for audio analysis.</p>
+                  </div>
+                </div>
+
+                <div class="arch-item">
+                  <span class="badge">ESP32</span>
+                  <div>
+                    <p>
+                      Collects sensor streams, performs lightweight validation, and transmits data
+                      via Wi‑Fi/Cellular modules to the cloud.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="arch-item">
+                  <span class="badge">Cloud</span>
+                  <div>
+                    <p>
+                      Runs ML/CNN models, stores logs, triggers workflows (Firebase/IFTTT),
+                      and integrates with smart city services.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="arch-item">
+                  <span class="badge">Alert System</span>
+                  <div>
+                    <p>
+                      Automatically sends accident alerts containing GPS location, time stamp,
+                      and confidence scores to emergency responders and nearby vehicles (V2X).
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="callout card">
+              <h4>Multi-layer verification = fewer false alarms</h4>
+              <p class="muted">
+                The system confirms accidents using a combination of impact, motion, audio anomalies,
+                and CNN confidence, rather than relying on a single trigger.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- 4) AI & ML -->
+    <section class="section" id="aiml">
+      <div class="container">
+        <header class="section__header reveal">
+          <h2 class="section__title">AI & Machine Learning</h2>
+          <p class="section__desc">
+            AI handles decision-making and orchestration, while ML learns driving/impact patterns from data.
+          </p>
+        </header>
 
         <div class="grid grid--2">
-          <div class="card reveal" style="display: flex; flex-direction: column; justify-content: center; align-items: center; perspective: 1000px;">
-            <div id="archTiltCard" class="tilt-card" style="position: relative; width: 100%; transition: transform 0.1s ease-out; transform-style: preserve-3d;">
-              <img src="images/pic.png" alt="Architecture" style="width: 100%; border-radius: var(--radius-sm); box-shadow: var(--shadow-md);">
-              
-              <!-- Floating 3D Data Nodes -->
-              <div class="data-node" style="top: 20%; left: 15%; transform: translateZ(40px);">
-                <div class="node-pulse"></div><span>Edge AI Node</span>
-              </div>
-              <div class="data-node" style="top: 50%; right: 10%; transform: translateZ(60px);">
-                <div class="node-pulse" style="background: var(--danger);"></div><span>Firebase DB</span>
-              </div>
-              <div class="data-node" style="bottom: 15%; left: 40%; transform: translateZ(80px);">
-                <div class="node-pulse" style="background: var(--success);"></div><span>V2X Module</span>
-              </div>
-            </div>
-            <p style="margin-top: 24px; font-size: 0.9rem; color: var(--text-muted);">Interactive 3D Layer Model. Hover to rotate.</p>
-          </div>
+          <article class="card reveal">
+            <h3>Artificial Intelligence (AI)</h3>
+            <p>
+              AI acts as the system’s decision engine: it combines evidence from multiple sources
+              (sensor thresholds, ML classification, CNN confidence) and decides whether to trigger emergency protocols.
+            </p>
+            <ul class="bullets">
+              <li>Decision fusion: impact + sound + vision + context.</li>
+              <li>Triggers emergency workflow automatically.</li>
+              <li>Can integrate with smart traffic for green corridors.</li>
+            </ul>
+          </article>
 
-          <div class="card">
-            <h3>Core Components</h3>
-            <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 20px;">
-              <div>
-                <strong class="text-gradient">Sensors:</strong>
-                <p>Accelerometer (G-force), GPS (Location), Microphone (Audio analysis).</p>
-              </div>
-              <div>
-                <strong class="text-gradient">ESP32:</strong>
-                <p>Collects sensor streams, performs validation, and transmits data.</p>
-              </div>
-              <div>
-                <strong class="text-gradient">Cloud:</strong>
-                <p>Runs ML/CNN models, stores logs, triggers workflows.</p>
-              </div>
-              <div>
-                <strong class="text-gradient">Alert System:</strong>
-                <p>Automatically sends accident alerts containing GPS to emergency responders.</p>
-              </div>
-            </div>
-          </div>
+          <article class="card reveal">
+            <h3>Machine Learning (ML)</h3>
+            <p>
+              ML models analyze numeric sensor streams (accelerometer, speed changes, motion patterns)
+              to distinguish normal events from true accidents.
+            </p>
+            <ul class="bullets">
+              <li>Pattern detection from time-series signals.</li>
+              <li>Classifies: normal driving vs sudden braking vs accident.</li>
+              <li>Improves accuracy over time with new training data.</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- 4) AI & ML & CNN -->
-    <section>
+    <!-- 5) CNN -->
+    <section class="section" id="cnn">
       <div class="container">
-        <div style="text-align: center; margin-bottom: 48px;">
-          <h2>AI, ML, and <span class="text-gradient">CNN Models</span></h2>
-          <p>Extracting spatial patterns in images and time-frequency patterns in spectrograms.</p>
-        </div>
+        <header class="section__header reveal">
+          <h2 class="section__title">CNN (Convolutional Neural Networks)</h2>
+          <p class="section__desc">
+            CNNs learn spatial patterns in images and time-frequency patterns in spectrograms—ideal for accident detection.
+          </p>
+        </header>
 
         <div class="grid grid--3">
-          <div class="card">
-            <h3>Decision Engine (AI)</h3>
-            <p style="margin-top: 12px;">Combines evidence from multiple sources (sensor thresholds, ML classification, CNN confidence) to decide whether to trigger emergency protocols automatically.</p>
+          <article class="card reveal">
+            <h3>What is a CNN?</h3>
+            <p>
+              A CNN is a deep learning model designed to extract features using convolution filters.
+              It automatically learns edges, shapes, motion cues, and complex visual patterns.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <h3>Image-based Accident Detection</h3>
+            <p>
+              Road-facing camera frames can be classified into <strong>accident</strong> vs <strong>non-accident</strong>.
+              This adds visual confirmation, improving reliability when sensors alone are ambiguous.
+            </p>
+            <div class="mini-steps">
+              <span>Camera</span><span>→</span><span>CNN</span><span>→</span><span>Confidence</span>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <h3>Sound-based Detection (Spectrograms)</h3>
+            <p>
+              Crash sounds have distinctive frequency signatures. Audio is converted into a
+              <strong>spectrogram</strong> and then classified by a CNN to detect collisions.
+            </p>
+            <div class="mini-steps">
+              <span>Mic</span><span>→</span><span>Spectrogram</span><span>→</span><span>CNN</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="card reveal cnn-note">
+          <h4>Why combine CNN with sensors?</h4>
+          <p class="muted">
+            Sensors can spike during potholes or harsh braking. CNN-based vision/audio adds an independent signal,
+            enabling robust multi-layer validation and reducing false positives.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6) FEATURES -->
+    <section class="section" id="features">
+      <div class="container">
+        <header class="section__header reveal">
+          <h2 class="section__title">Features</h2>
+          <p class="section__desc">Designed as a complete safety ecosystem for connected mobility.</p>
+        </header>
+
+        <div class="grid grid--3">
+          <div class="card feature reveal">
+            <div class="feature__icon">⚡</div>
+            <h3>Real-time Accident Detection</h3>
+            <p>Multi-sensor + AI fusion detects accidents instantly and reliably.</p>
           </div>
-          <div class="card">
-            <h3>Pattern Detection (ML)</h3>
-            <p style="margin-top: 12px;">Analyzes numeric sensor streams to distinguish normal events from true accidents, improving accuracy over time with new training data.</p>
+
+          <div class="card feature reveal">
+            <div class="feature__icon">📍</div>
+            <h3>GPS Location Tracking</h3>
+            <p>Shares accurate coordinates with emergency responders automatically.</p>
           </div>
-          <div class="card">
-            <h3>Vision & Audio (CNN)</h3>
-            <p style="margin-top: 12px;">Classifies road-facing camera frames into accident vs non-accident. Analyzes audio spectrograms to identify distinctive crash frequency signatures.</p>
+
+          <div class="card feature reveal">
+            <div class="feature__icon">🚨</div>
+            <h3>Automatic Alert System</h3>
+            <p>Triggers alerts without human input—critical during severe injuries.</p>
+          </div>
+
+          <div class="card feature reveal">
+            <div class="feature__icon">❤️</div>
+            <h3>Driver Health Monitoring</h3>
+            <p>Optional ECG/health sensors help detect fatigue or medical emergencies.</p>
+          </div>
+
+          <div class="card feature reveal">
+            <div class="feature__icon">📡</div>
+            <h3>V2X Communication</h3>
+            <p>Alerts nearby vehicles/infrastructure (V2V, V2I) to prevent secondary crashes.</p>
+          </div>
+
+          <div class="card feature reveal">
+            <div class="feature__icon">🔐</div>
+            <h3>Blockchain-based Security</h3>
+            <p>Accident logs stored as tamper-proof records for legal/insurance evidence.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 5) AI PLAYGROUND (REPLACES OLD DEMO) -->
-    <section id="playground">
+    <!-- 7) TECH STACK -->
+    <section class="section" id="tech">
       <div class="container">
-        <div style="text-align: center; margin-bottom: 48px;">
-          <h2>AI Model <span class="text-gradient">Playground</span></h2>
-          <p>Drag and drop your datasets below to test the AI inference engine live.</p>
-        </div>
+        <header class="section__header reveal">
+          <h2 class="section__title">Tech Stack</h2>
+          <p class="section__desc">A clean, modern stack suited for prototyping and demonstration.</p>
+        </header>
 
-        <div class="playground-container">
-          <!-- Controls (Left) -->
-          <div class="card">
-            <h3 style="margin-bottom: 16px;">Model Settings</h3>
+        <div class="grid grid--4">
+          <div class="card reveal">
+            <h3>Frontend</h3>
+            <p class="muted">HTML • CSS • JavaScript</p>
+            <div class="tag-row">
+              <span class="tag">Responsive UI</span>
+              <span class="tag">Animations</span>
+              <span class="tag">Accessibility</span>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <h3>AI / CNN</h3>
+            <p class="muted">TensorFlow • CNN Models</p>
+            <div class="tag-row">
+              <span class="tag">Vision</span>
+              <span class="tag">Spectrogram</span>
+              <span class="tag">Classification</span>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <h3>Hardware</h3>
+            <p class="muted">ESP32 • Sensors</p>
+            <div class="tag-row">
+              <span class="tag">Accelerometer</span>
+              <span class="tag">GPS</span>
+              <span class="tag">Mic</span>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <h3>Cloud</h3>
+            <p class="muted">Firebase / Cloud</p>
+            <div class="tag-row">
+              <span class="tag">Realtime DB</span>
+              <span class="tag">Functions</span>
+              <span class="tag">Alerts</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8) AI PLAYGROUND (Replaces old demo) -->
+    <section class="section" id="playground">
+      <div class="container">
+        <header class="section__header reveal">
+          <h2 class="section__title">AI Model Playground</h2>
+          <p class="section__desc">
+            Drag and drop your datasets below to test the AI inference engine live. Connects to Python Flask Backend.
+          </p>
+        </header>
+
+        <div class="grid grid--2 demo-card reveal">
+          <div class="card" style="padding: 30px;">
+            <h3 style="margin-bottom: 20px;">Model Settings</h3>
             
-            <div class="select-wrapper">
-              <select id="modelSelect">
+            <div style="margin-bottom: 20px;">
+              <select id="modelSelect" style="width: 100%; padding: 12px; background: rgba(10, 20, 40, 0.8); color: var(--text); border: 1px solid var(--neon); border-radius: var(--radius); outline: none;">
                 <option value="yolov8">YOLOv8 Fast (Vision)</option>
                 <option value="mobilenet">MobileNetV3 (Edge)</option>
                 <option value="cnn">Custom CNN (Ensemble)</option>
               </select>
             </div>
 
-            <div class="upload-zone" id="uploadZone">
-              <span class="upload-icon">📁</span>
-              <p style="font-weight: 500; color: var(--text-main); margin-bottom: 8px;">Drag & drop images here</p>
-              <p style="font-size: 0.85rem;">or click to browse from computer</p>
-              <input type="file" id="fileInput" class="file-input" multiple accept="image/*">
+            <div id="uploadZone" style="border: 2px dashed var(--stroke); padding: 40px; text-align: center; border-radius: var(--radius); cursor: pointer; transition: all 0.3s; background: rgba(255,255,255,0.02);">
+              <div style="font-size: 2rem; margin-bottom: 10px; color: var(--neon);">📁</div>
+              <p>Drag & drop images here</p>
+              <p class="muted tiny">or click to browse</p>
+              <input type="file" id="fileInput" hidden multiple accept="image/*">
             </div>
 
-            <button class="btn btn--ai" id="runInferenceBtn" style="width: 100%; margin-top: 24px;" disabled>
+            <button class="btn btn--primary" id="runInferenceBtn" style="width: 100%; margin-top: 20px;" disabled>
               Run Inference Engine
             </button>
             
-            <div id="processingStatus" hidden style="text-align: center; margin-top: 24px;">
-              <p style="font-weight: 600;"><span class="text-gradient">Processing via <span id="activeModelName">YOLOv8</span>...</span></p>
+            <div id="processingStatus" hidden style="text-align: center; margin-top: 20px;">
+              <p style="color: var(--neon); font-weight: 600;">Processing via <span id="activeModelName">YOLOv8</span>...</p>
             </div>
           </div>
 
-          <!-- Output Gallery (Right) -->
-          <div class="card" style="min-height: 400px;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 24px; align-items: center;">
+          <div class="card" style="padding: 30px; min-height: 400px; display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 20px; align-items: center;">
               <h3>Inference Results</h3>
-              <span id="outputCount" style="font-size: 0.85rem; color: var(--text-main); font-weight: 600; background: rgba(255,255,255,0.1); border: 1px solid var(--card-border); padding: 4px 12px; border-radius: 999px;">0 images</span>
+              <span id="outputCount" class="pill" style="font-size: 0.85rem;">0 images</span>
             </div>
             
-            <div class="gallery-grid" id="outputGallery">
-              <div style="grid-column: 1 / -1; text-align: center; padding: 60px 0; color: var(--text-muted);">
+            <div id="outputGallery" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; flex-grow: 1;">
+              <div style="grid-column: 1 / -1; text-align: center; padding: 40px 0; color: var(--muted); display: flex; align-items: center; justify-content: center;">
                 Awaiting dataset import...
               </div>
             </div>
@@ -223,29 +548,112 @@
       </div>
     </section>
 
-    <!-- 6) CONCLUSION -->
-    <section id="conclusion">
-      <div class="container text-center" style="max-width: 800px; margin: 0 auto; text-align: center;">
-        <h2 style="margin-bottom: 24px;">Conclusion & Future Scope</h2>
-        <p style="margin-bottom: 48px;">AI-enabled safety systems can transform emergency response, reduce fatalities, and power smart transportation.</p>
-        
-        <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 40px;">
-          <span class="btn btn--ghost" style="cursor: default;">Reduced Response Time</span>
-          <span class="btn btn--ai" style="cursor: default;">High Accuracy</span>
-          <span class="btn btn--ghost" style="cursor: default;">Smart City Integration</span>
+    <!-- 9) CONCLUSION -->
+    <section class="section" id="conclusion">
+      <div class="container">
+        <header class="section__header reveal">
+          <h2 class="section__title">Conclusion & Future Scope</h2>
+          <p class="section__desc">
+            AI-enabled safety systems can transform emergency response, reduce fatalities, and power smart transportation.
+          </p>
+        </header>
+
+        <div class="grid grid--2">
+          <article class="card reveal">
+            <h3>Key Benefits</h3>
+            <ul class="bullets">
+              <li>Reduced response time through automated emergency alerts.</li>
+              <li>Higher accuracy via multi-layer verification (sensor + CNN + ML).</li>
+              <li>Better traffic coordination through V2X / smart city integration.</li>
+              <li>Secure incident records using blockchain-based logging.</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <h3>Future Scope</h3>
+            <ul class="bullets">
+              <li>Edge-AI deployment for low-latency on-device inference.</li>
+              <li>Expanded health monitoring and driver fatigue prediction.</li>
+              <li>City-wide integration with adaptive traffic signals and routing.</li>
+              <li>Continuous learning using anonymized, consent-based datasets.</li>
+            </ul>
+          </article>
         </div>
-        
-        <p style="font-size: 0.9rem; color: var(--text-muted);">
-          Built with HTML • CSS • JS — Modern SaaS Theme, Responsive Layout, and Interactive Python AI Backend.
-        </p>
+
+        <footer class="footer reveal">
+          <div class="footer__left">
+            <div class="brand brand--small">
+              <span class="brand__mark" aria-hidden="true"></span>
+              <span class="brand__text">Multi-Layered Vehicular Safety System</span>
+            </div>
+            <p class="tiny muted">
+              Built with HTML • CSS • JS — dark futuristic theme, responsive layout, and interactive demo.
+            </p>
+          </div>
+
+          <div class="footer__right">
+            <a class="link tiny" href="#top">Back to top</a>
+          </div>
+        </footer>
       </div>
     </section>
-
   </main>
 
-  <div id="toast" class="toast">
-    <div class="toast__title" id="toastTitle">Notification</div>
-    <div class="toast__text" id="toastText">Message goes here.</div>
+  <!-- Toast + Modal -->
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">
+    <div class="toast__icon" aria-hidden="true">🛰️</div>
+    <div class="toast__body">
+      <div class="toast__title" id="toastTitle">System Online</div>
+      <div class="toast__text" id="toastText">Sensors synced. Awaiting events.</div>
+    </div>
+    <button class="toast__close" id="toastClose" aria-label="Close notification">×</button>
+  </div>
+
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__backdrop" data-close="true"></div>
+    <div class="modal__panel card">
+      <div class="modal__header">
+        <h3 class="modal__title" id="modalTitle">Accident Detected</h3>
+        <button class="modal__close" id="modalClose" aria-label="Close dialog">×</button>
+      </div>
+      <div class="modal__content">
+        <p id="modalMessage">
+          Accident Detected! Location sent to emergency services.
+        </p>
+
+        <div class="modal__meta">
+          <div class="meta-pill">
+            <span class="meta-k">Time</span>
+            <span class="meta-v" id="metaTime">—</span>
+          </div>
+          <div class="meta-pill">
+            <span class="meta-k">GPS</span>
+            <span class="meta-v" id="metaGps">—</span>
+          </div>
+          <div class="meta-pill">
+            <span class="meta-k">Confidence</span>
+            <span class="meta-v" id="metaConf">—</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal__actions">
+        <button class="btn btn--primary" id="modalOk" type="button">OK</button>
+        <button class="btn btn--ghost" id="modalDetails" type="button">View Steps</button>
+      </div>
+
+      <div class="modal__steps" id="modalSteps" hidden>
+        <ol>
+          <li>Impact spike detected (accelerometer)</li>
+          <li>Audio anomaly verified (spectrogram-CNN)</li>
+          <li>Optional vision confirmation (image-CNN)</li>
+          <li>AI decision engine confirmed accident</li>
+          <li>GPS + timestamp sent to emergency services</li>
+          <li>V2X alert broadcast to nearby nodes</li>
+          <li>Blockchain log entry created (tamper-proof)</li>
+        </ol>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
