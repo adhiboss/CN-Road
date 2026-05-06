@@ -168,10 +168,10 @@
         </header>
         
         <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-          <div class="card reveal" style="padding: 10px; text-align: center;"><img src="images/R-trai.jpg" alt="Setup 1" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);"></div>
-          <div class="card reveal" style="padding: 10px; text-align: center;"><img src="images/WhatsApp Image 2026-05-06 at 10.34.23 PM.jpeg" alt="Setup 2" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);"></div>
-          <div class="card reveal" style="padding: 10px; text-align: center;"><img src="images/pic.png" alt="Architecture" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);"></div>
-          <div class="card reveal" style="padding: 10px; text-align: center;"><img src="images/pic2.jpg" alt="Node" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);"></div>
+          <div class="card showcase-card reveal" style="padding: 10px; text-align: center; border: 1px solid var(--neon);"><img src="images/R-trai.jpg" alt="Setup 1" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);"></div>
+          <div class="card showcase-card reveal" style="padding: 10px; text-align: center; border: 1px solid var(--neon);"><img src="images/WhatsApp Image 2026-05-06 at 10.34.23 PM.jpeg" alt="Setup 2" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);"></div>
+          <div class="card showcase-card reveal" style="padding: 10px; text-align: center; border: 1px solid var(--neon);"><img src="images/pic.png" alt="Architecture" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);"></div>
+          <div class="card showcase-card reveal" style="padding: 10px; text-align: center; border: 1px solid var(--neon);"><img src="images/pic2.jpg" alt="Node" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);"></div>
         </div>
       </div>
     </section>
@@ -231,14 +231,27 @@
 
         <div class="grid grid--2 architecture">
           <div class="card reveal">
-            <div class="media">
-              <!-- Placeholder diagram: replace with your own image later -->
-              <img
-                class="media__img"
-                src="https://via.placeholder.com/1200x700.png?text=System+Architecture+Diagram+(Placeholder)"
-                alt="System architecture diagram placeholder"
-                loading="lazy"
-              />
+            <div class="media" style="perspective: 1000px; display: flex; justify-content: center; align-items: center; min-height: 300px; background: rgba(0,0,0,0.2); border-radius: var(--radius); border: 1px solid rgba(59,231,255,0.1);">
+              <div id="archTiltCard" class="tilt-card" style="position: relative; width: 100%; transition: transform 0.1s ease-out; transform-style: preserve-3d;">
+                <img
+                  class="media__img"
+                  src="images/pic.png"
+                  alt="System Architecture Diagram"
+                  loading="lazy"
+                  style="border-radius: var(--radius);"
+                />
+                
+                <!-- Floating 3D Data Nodes -->
+                <div class="data-node" style="top: 20%; left: 10%; transform: translateZ(40px);">
+                  <div class="node-pulse"></div><span>Edge AI Node</span>
+                </div>
+                <div class="data-node" style="top: 50%; right: 5%; transform: translateZ(60px);">
+                  <div class="node-pulse" style="background: var(--danger); box-shadow: 0 0 0 0 rgba(239,68,68,0.4);"></div><span>Firebase DB</span>
+                </div>
+                <div class="data-node" style="bottom: 15%; left: 35%; transform: translateZ(80px);">
+                  <div class="node-pulse" style="background: var(--success); box-shadow: 0 0 0 0 rgba(16,185,129,0.4);"></div><span>V2X Module</span>
+                </div>
+              </div>
             </div>
             <p class="tiny muted">
               Tip: Replace the placeholder with a block diagram (Sensors → ESP32 → Cloud → Alerts/V2X/Blockchain).

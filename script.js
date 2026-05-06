@@ -154,6 +154,33 @@ if (tiltCard && tiltContainer) {
   });
 }
 
+// --- 3D Hover Effect for Showcase Gallery ---
+const showcaseCards = $$('.showcase-card');
+showcaseCards.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    // Different 3D effect: pops out (scale3d) and tilts
+    const rotateX = ((y - centerY) / centerY) * -10;
+    const rotateY = ((x - centerX) / centerX) * 10;
+    
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    
+    // Dynamic glare effect mapping
+    card.style.setProperty('--mouseX', `${x}px`);
+    card.style.setProperty('--mouseY', `${y}px`);
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)`;
+  });
+});
+
 // --- AI Playground Logic ---
 const BACKEND_URL = "http://127.0.0.1:5000";
 const uploadZone = $("#uploadZone");
