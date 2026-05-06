@@ -130,31 +130,189 @@ const io = new IntersectionObserver((entries) => {
 
 $$(".reveal").forEach(el => io.observe(el));
 
-// --- Demo Interactions
-simulateBtn?.addEventListener("click", () => {
-  // Required: popup/alert text
-  // We show a professional modal instead of default alert(),
-  // but it includes the exact required message.
-  const gps = fakeGps();
-  const conf = `${Math.round(rand(92, 99))}%`;
+// --- 3D Tilt Effect for Architecture ---
+const tiltCard = document.getElementById('archTiltCard');
+const tiltContainer = tiltCard?.parentElement;
 
-  // Update telemetry panel
-  systemState.textContent = "Incident Mode";
-  verifyState.textContent = "Confirmed";
-  lastEvent.textContent = nowTimeString();
-  confidence.textContent = conf;
-
-  openModal({
-    message: "Accident Detected! Location sent to emergency services.",
-    gps,
-    conf
+if (tiltCard && tiltContainer) {
+  tiltContainer.addEventListener('mousemove', (e) => {
+    const rect = tiltContainer.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = ((y - centerY) / centerY) * -15;
+    const rotateY = ((x - centerX) / centerX) * 15;
+    
+    tiltCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
   });
+  
+  tiltContainer.addEventListener('mouseleave', () => {
+    tiltCard.style.transform = 'rotateX(0) rotateY(0)';
+  });
+}
 
-  showToast("Emergency Alert Dispatched", `GPS shared securely • ${gps}`);
+// --- AI Playground Logic ---
+const BACKEND_URL = "http://127.0.0.1:5000";
+const uploadZone = $("#uploadZone");
+const fileInput = $("#fileInput");
+const outputGallery = $("#outputGallery");
+const outputCount = $("#outputCount");
+const runInferenceBtn = $("#runInferenceBtn");
+const processingStatus = $("#processingStatus");
+const modelSelect = $("#modelSelect");
+const activeModelName = $("#activeModelName");
+
+let uploadedImagesData = [];
+
+// Handle click to upload
+uploadZone?.addEventListener("click", () => {
+  fileInput.click();
 });
 
-showToastBtn?.addEventListener("click", () => {
-  showToast("System Online", "Sensors synced. AI verification ready. Awaiting events.");
+// Handle drag & drop
+uploadZone?.addEventListener("dragover", (e) => {
+  e.preventDefault();
+  uploadZone.classList.add("dragover");
+});
+
+uploadZone?.addEventListener("dragleave", () => {
+  uploadZone.classList.remove("dragover");
+});
+
+uploadZone?.addEventListener("drop", (e) => {
+  e.preventDefault();
+  uploadZone.classList.remove("dragover");
+  handleFiles(e.dataTransfer.files);
+});
+
+// Handle file selection
+fileInput?.addEventListener("change", (e) => {
+  handleFiles(e.target.files);
+});
+
+async function handleFiles(files) {
+  const validFiles = Array.from(files).filter(file => file.type.startsWith("image/"));
+  if (validFiles.length === 0) return;
+  
+  if (uploadedImagesData.length === 0) {
+    outputGallery.innerHTML = "";
+  }
+  
+  const formData = new FormData();
+  validFiles.forEach(file => {
+    formData.append("images", file);
+  });
+  
+  try {
+    // Send physical files to Python backend
+    const response = await fetch(`${BACKEND_URL}/upload`, {
+      method: "POST",
+      body: formData
+    });
+    
+    const result = await response.json();
+    
+    if (result.status === "success") {
+      Array.from(validFiles).forEach((file, index) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const imgDataUrl = e.target.result;
+          uploadedImagesData.push({ id: result.files[index].id, imgDataUrl });
+          
+          const card = document.createElement("div");
+          card.className = "ai-image-card";
+          card.innerHTML = `<img src="${imgDataUrl}" alt="Uploaded image" />`;
+          outputGallery.appendChild(card);
+        };
+        reader.readAsDataURL(file);
+      });
+      showToast("Backend Synced", `Successfully saved ${validFiles.length} images to Python backend.`);
+    }
+  } catch (error) {
+    console.warn("Python backend not running, falling back to local simulation.");
+    Array.from(validFiles).forEach(file => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const imgDataUrl = e.target.result;
+        uploadedImagesData.push({ id: Math.random(), imgDataUrl });
+        const card = document.createElement("div");
+        card.className = "ai-image-card";
+        card.innerHTML = `<img src="${imgDataUrl}" alt="Uploaded image" />`;
+        outputGallery.appendChild(card);
+      };
+      reader.readAsDataURL(file);
+    });
+    showToast("Simulation Mode", `Added ${validFiles.length} images locally.`);
+  }
+  
+  outputCount.textContent = `${uploadedImagesData.length} images`;
+  runInferenceBtn.disabled = false;
+}
+
+// Handle Model Change
+modelSelect?.addEventListener("change", (e) => {
+  activeModelName.textContent = e.target.options[e.target.selectedIndex].text.split(" ")[0];
+});
+
+// Run Inference
+runInferenceBtn?.addEventListener("click", async () => {
+  if (uploadedImagesData.length === 0) return;
+  
+  runInferenceBtn.hidden = true;
+  processingStatus.hidden = false;
+  $$(".bounding-box").forEach(box => box.remove());
+  
+  try {
+    // Call Python Inference API
+    const response = await fetch(`${BACKEND_URL}/process`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        image_ids: uploadedImagesData.map(img => img.id),
+        model: activeModelName.textContent
+      })
+    });
+    
+    const result = await response.json();
+    if (result.status === "success") {
+      drawBoundingBoxes(result.results);
+      showToast("Inference Complete", `Processed ${uploadedImagesData.length} images via Python.`);
+    }
+  } catch (error) {
+    console.warn("Python backend down. Simulating inference locally.");
+    setTimeout(() => {
+      const simulatedResults = uploadedImagesData.map(img => ({
+        is_accident: Math.random() > 0.3,
+        confidence: Math.round(rand(85, 99)),
+        box: { width: rand(40, 80), height: rand(40, 80), top: rand(10, 50), left: rand(10, 50) }
+      }));
+      drawBoundingBoxes(simulatedResults);
+      showToast("Simulation Complete", `Processed ${uploadedImagesData.length} images locally.`);
+    }, rand(1500, 3000));
+  }
+  
+  function drawBoundingBoxes(results) {
+    runInferenceBtn.hidden = false;
+    processingStatus.hidden = true;
+    
+    const cards = $$(".ai-image-card");
+    results.forEach((res, idx) => {
+      if (!cards[idx]) return;
+      const box = document.createElement("div");
+      box.className = `bounding-box ${res.is_accident ? 'accident' : ''}`;
+      box.style.width = `${res.box.width}%`;
+      box.style.height = `${res.box.height}%`;
+      box.style.top = `${res.box.top}%`;
+      box.style.left = `${res.box.left}%`;
+      
+      const label = res.is_accident ? `Accident ${res.confidence}%` : `Vehicle ${res.confidence}%`;
+      box.innerHTML = `<div class="box-label">${label}</div>`;
+      cards[idx].appendChild(box);
+    });
+  }
 });
 
 // Modal closing controls
